@@ -1,0 +1,1 @@
+@java -cp "%JAVA_HOME%/lib/tools.jar";jvmstat.jar net.codeattic.jvmstat.Main %*
