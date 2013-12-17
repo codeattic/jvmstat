@@ -1,17 +1,12 @@
 <assembly>
-	<!-- Generates a zip package containing the needed files -->
 	<formats>
 		<format>zip</format>
 		<format>tar.gz</format>
 	</formats>
 
-	<!-- Adds dependencies to zip package under lib directory -->
 	<dependencySets>
+		<!-- Adds dependencies into lib folder -->
 		<dependencySet>
-			<!--
-			   Project artifact is not copied under library directory since
-			   it is added to the root directory of the zip package.
-		   -->
 			<useProjectArtifact>false</useProjectArtifact>
 			<outputDirectory>lib</outputDirectory>
 			<unpack>false</unpack>
@@ -19,11 +14,7 @@
 	</dependencySets>
 
 	<fileSets>
-		<!--
-		   Adds startup scripts to the root directory of zip package. The startup
-		   scripts are located to src/main/scripts directory as stated by Maven
-		   conventions.
-	   -->
+		<!-- Adds scripts to root folder -->
 		<fileSet>
 			<directory>${project.build.scriptSourceDirectory}</directory>
 			<outputDirectory></outputDirectory>
@@ -32,7 +23,9 @@
 			</includes>
 			<fileMode>0755</fileMode>
 		</fileSet>
-		<!-- adds jar package to the root directory of zip package -->
+
+
+		<!-- Adds application jar into root folder -->
 		<fileSet>
 			<directory>${project.build.directory}</directory>
 			<outputDirectory></outputDirectory>
